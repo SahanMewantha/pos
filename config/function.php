@@ -51,12 +51,12 @@
     function update($tableName,$id,$data){
         global $conn;
         $table=validate($tableName);
-        $table=validate($id);
+        $id=validate($id);
 
         $updateDataString="";
 
         foreach($data as $column =>$value){
-            $updateDataString .= $column. '='."'$value'";
+            $updateDataString .= $column.'='."'$value',";
 
         }
         $finalUpdateData = substr(trim($updateDataString),0,-1);
@@ -102,7 +102,7 @@
 
                 $row=mysqli_fetch_assoc($result);
                 $response =[
-                    'status'=>404,
+                    'status'=>200,
                     'data' => $row,
                     'message' => 'Record Found !'
                 ];
@@ -132,5 +132,21 @@
         return $result;
     }
 
+    function checkParamId($type)
+    {
+        if(isset($_GET[$type])){
+            if($_GET[$type] != ''){
+                return $_GET[$type];
+            }
+            else{
+                return '<h5> no id found <h5>';
+            }
+        }
+        else{
+            return '<h5> no id given <h5>';
+        }
+        
+
+    }
 
 ?>

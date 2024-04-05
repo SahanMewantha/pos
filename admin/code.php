@@ -40,5 +40,54 @@
 
 
     }
+
+    if(isset($_POST['updateAdmin']))
+    {
+        $adminId=validate($_POST['adminId']);
+        $adminData=getById('admin',$adminId);
+        if($adminData['status']!=200){
+            redirct('admins-edit.php?id='.$adminId,'Please fill requre fields.');
+        }
+
+        $name=validate($_POST['name']);
+        $email=validate($_POST['email']);
+        $password=validate($_POST['password']);
+        $phone=validate($_POST['phone']);
+        
+
+        if($password !=''){
+            $hashedPassword=password_hash($password,PASSWORD_BCRYPT);
+        }
+        else{
+            $hashedPassword=$adminData['data']['password'];
+        }
+        if($name !='' && $email !=''){
+            $data=[
+                'name'=>$name,
+                'email'=>$email,
+                'password'=>$password,
+                'phone'=>$phone,   				
+            ];
+            $result=update('admin',$adminId,$data);
+            if($result){
+                redirct('admin.php?id='.$adminId,'Admin Updated Succsessfully...!.');
+            }
+            else{
+                redirct('admins-edit.php?id='.$adminId,'Somthin went wrong.');
+            }
+
+        }
+
+
+        if($name != '' && $email != '' )
+        {
+        }
+        else
+        {
+            redirct('admins-create.php','Please fill requre fields.');
+        }
+
+
+    }
     
 ?>

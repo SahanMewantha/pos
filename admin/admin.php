@@ -4,7 +4,7 @@
 
     <div class="card mt-4 shadow-sm">
         <div class="card-header">
-            <h4 class="mb-0">Admin/Staff
+            <h4 class="mb-0">Admin
             <a href="admins-create.php" class="btn btn-primary float-end">Add Admin</a>
             </h4>
         </div>
@@ -35,8 +35,8 @@
                         <td><?= $adminItem['name'] ?></td>
                         <td><?= $adminItem['email'] ?></td>
                         <td>
-                            <a href="admins-edit.php" class="btn btn-success btn-sm">Edit</a>
-                            <a href="admins-delete.php" class="btn btn-danger btn-sm">Delete</a>
+                            <a href="admins-edit.php?id=<?=  $adminItem['id'] ?>" class="btn btn-success btn-sm">Edit</a>
+                            <a href="admins-delete.php?id=<?=  $adminItem['id'] ?>"  class="btn btn-danger btn-sm">Delete</a>
 
                         </td>
 
@@ -48,7 +48,7 @@
             </table>
         </div>
         <?php 
-                        } 
+                    } 
                         else
                         {
                     ?>
@@ -56,7 +56,7 @@
                                 <td colspan="4">No record Found</td>
                             </tr>
                     <?php      
-                        }
+                    }
         ?>
     </div>
     </div>
