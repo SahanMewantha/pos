@@ -28,7 +28,7 @@
             ];
             $result=insert('admin',$data);
             if($result){
-                redirct('admin.php','Admin Created Succsessfully...!.');
+                redirct('admin.php','Item Added...!.');
             }
             else{
                 redirct('admins-create.php','Somthin went wrong.');
@@ -84,7 +84,29 @@
         }
         else
         {
-            redirct('admins-create.php','Please fill requre fields.');
+            redirct('categories-create.php','Please fill requre fields.');
+        }
+
+
+    }
+    if(isset($_POST['savecategory']))
+    {
+        $itemname = validate($_POST['itemname']);
+        $category = validate($_POST['category']);
+        $quntity=validate($_POST['qty']);
+
+        $data=[
+            'itemname'=>$itemname,
+            'category'=>$category,
+            'quntity'=>$quntity
+
+        ];
+        $result=insert('categories',$data);
+        if($result){
+            redirct('categories.php','Admin Created Succsessfully...!.');
+        }
+        else{
+            redirct('categories-create.php','Somthin went wrong.');
         }
 
 

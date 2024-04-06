@@ -6,7 +6,7 @@
     function validate($inputData){
         global $conn;
         $validatedData =mysqli_real_escape_string($conn,$inputData);
-        return trim($inputData);
+        return trim($validatedData);
     }
 
     //redirect form 1 page to another page with message
