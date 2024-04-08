@@ -28,7 +28,7 @@
                         <th>ID</th>
                         <th>Name</th>
                         <th>Category</th>
-                        <th>Quntity</th>
+                        <th>Quntity (Kg/Packets)</th>
                         <th>Action</th>
                     </tr>
                 </thead>

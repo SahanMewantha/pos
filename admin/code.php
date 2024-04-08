@@ -22,7 +22,7 @@
             $data=[
                 'name'=>$name,
                 'email'=>$email,
-                'password'=>$password,
+                'password'=>$bcrypt_password,
                 'phone'=>$phone,
                 'is_ban'=>$is_ban    				
             ];
@@ -111,5 +111,35 @@
 
 
     }
+
+    if(isset($_POST['updateCategory']))
+    {
+        $categoryid=validate($_POST['categoryId']);
+        $adminData=getById('categories',$categoryid);
+        if($adminData['status']!=200){
+            redirct('categories-edit.php?id='.$categoryid,'Please fill requre fields.');
+        }
+
+        $itemname = validate($_POST['itemname']);
+        $category = validate($_POST['category']);
+        $quntity=validate($_POST['qty']);
+
+        if($itemname !='' && $category !=''){
+            $data=[
+                'itemname'=>$itemname,
+                'category'=>$category,
+                'quntity'=>$quntity
     
+            ];
+            $result=update('categories',$categoryid,$data);
+            if($result){
+                redirct('categories.php?id='.$categoryid,'Item Updated Succsessfully...!.');
+            }
+            else{
+                redirct('categories-edit.php?id='.$categoryid,'Somthin went wrong.');
+            }
+
+        }
+    }
+
 ?>
