@@ -29,6 +29,7 @@
                         <th>Name</th>
                         <th>Phone</th>
                         <th>Email</th>
+                        <th>Status</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -42,8 +43,22 @@
                         <td><?= $Item['phone'] ?></td>
                         <td><?= $Item['email'] ?></td>
                         <td>
+                            <?php
+                                if($Item['status']==1){
+                                    echo '<span class="badge bg-danger">Hidden</span>';
+                                }
+                                else{
+                                    echo '<span class="badge bg-primary">Visible</span>';
+                                }
+                            ?>
+                        </td>
+                        <td>
                             <a href="customers-edit.php?id=<?=  $Item['id'] ?>" class="btn btn-success btn-sm">Edit</a>
-                            <a href="customers-delete.php?id=<?=  $Item['id'] ?>"  class="btn btn-danger btn-sm">Delete</a>
+                            <a href="customers-delete.php?id=<?=  $Item['id'] ?>"
+                              class="btn btn-danger btn-sm"
+                              onclick="return confirm('Are you sure you went to delete this')">
+                              Delete
+                            </a>
 
                         </td>
 

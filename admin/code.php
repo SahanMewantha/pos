@@ -28,7 +28,7 @@
             ];
             $result=insert('admin',$data);
             if($result){
-                redirct('admin.php','Item Added...!.');
+                redirct('admin.php','Admin Added...!.');
             }
             else{
                 redirct('admins-create.php','Somthin went wrong.');
@@ -103,7 +103,7 @@
         ];
         $result=insert('categories',$data);
         if($result){
-            redirct('categories.php','Admin Created Succsessfully...!.');
+            redirct('categories.php','Item Created Succsessfully...!.');
         }
         else{
             redirct('categories-create.php','Somthin went wrong.');
@@ -143,8 +143,74 @@
     }
 
 
-    if(isset($_POST['savecustomer'])){
+    if(isset($_POST['savecustomer']))
+    {
         
+        $cusname=validate($_POST['cusname']);
+        $phone=validate($_POST['phone']);
+        $email=validate($_POST['mail']);
+        $status=isset($_POST['status']) ? 1:0;
+
+        if($cusname !=''){
+
+            $emailCheck = mysqli_query($conn,"SELECT * FROM customers WHERE email='$email'");
+            if($emailCheck){
+                if(mysqli_num_rows($emailCheck)>0){
+                    redirct('customers-create.php','Email already used...!');
+                }
+            }
+            $data=[
+                'cusname'=>$cusname,
+                'email'=>$email,
+                'phone'=>$phone,
+                'status'=>$status    				
+            ];
+            $result=insert('customers',$data);
+            if($result){
+                redirct('customer.php','customers Added...!.');
+            }
+            else{
+                redirct('customer-create.php','Somthin went wrong.');
+            }
+        
+        }
+        
+
+    }
+
+    if(isset($_POST['updatecustomer']))
+    {
+        $cusid=validate($_POST['cusid']);
+        $cusname=validate($_POST['cusname']);
+        $phone=validate($_POST['phone']);
+        $email=validate($_POST['mail']);
+        $status=isset($_POST['status']) ? 1:0;
+
+        if($cusname !='')
+        {
+            $emailCheck = mysqli_query($conn,"SELECT * FROM customers WHERE email='$email' AND id!='$cusid'");
+            if($emailCheck){
+                if(mysqli_num_rows($emailCheck)>0){
+                    redirct('customers-edit.php?id='.$cusid,'Email already used...!');
+                }
+            }
+            $data=[
+                'cusname'=>$cusname,
+                'email'=>$email,
+                'phone'=>$phone,
+                'status'=>$status    				
+            ];
+            $result=update('customers',$cusid,$data);
+            if($result){
+                redirct('customers-edit.php?id='.$cusid,'customers updated...!.');
+            }
+            else{
+                redirct('customers-edit.php?id='.$cusid,'Somthin went wrong.');
+            }
+        
+        }
+        
+
     }
 
 ?>
