@@ -209,4 +209,27 @@
 
     }
 
+    if(isset($_POST['saveProduct']))
+    {
+        $description = validate($_POST['description']);
+        $category = validate($_POST['category']);
+
+        $data=[
+            'description'=>$description,
+            'category'=>$category
+
+        ];
+        $result=insert('categories',$data);
+        if($result){
+            redirct('categories.php','Item Created Succsessfully...!.');
+        }
+        else{
+            redirct('categories-create.php','Somthin went wrong.');
+        }
+
+
+    }
+
+
+
 ?>
