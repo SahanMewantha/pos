@@ -3,9 +3,20 @@
         <div class="sb-sidenav-menu">
             <div class="nav">
                 <div class="sb-sidenav-menu-heading">Core</div>
+
                 <a class="nav-link" href="index.html">
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                     Dashboard
+                </a>
+
+                <a class="nav-link" href="orders-create.php">
+                    <div class="sb-nav-link-icon"><i class="fas fa-bell"></i></div>
+                    New Order
+                </a>
+
+                <a class="nav-link" href="orders.php">
+                    <div class="sb-nav-link-icon"><i class="fas fa-list"></i></div>
+                    View Orders
                 </a>
 
 
