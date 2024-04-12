@@ -26,9 +26,7 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Name</th>
                         <th>Category</th>
-                        <th>Quntity (Kg/Packets)</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -38,9 +36,7 @@
                     <?php foreach($categories as $Item) :  ?>
                     <tr>
                         <td><?= $Item['id'] ?></td>
-                        <td><?= $Item['itemname'] ?></td>
                         <td><?= $Item['category'] ?></td>
-                        <td><?= $Item['quntity'] ?></td>
                         <td>
                             <a href="categories-edit.php?id=<?=  $Item['id'] ?>" class="btn btn-success btn-sm">Edit</a>
                             <a href="categories-delete.php?id=<?=  $Item['id'] ?>"  class="btn btn-danger btn-sm">Delete</a>

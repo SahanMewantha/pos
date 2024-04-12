@@ -42,20 +42,16 @@
                         <input type="hidden" name="categoryId" value="<?= $categoryData['data']['id']; ?>">
 
                             <div class="row">
-                                <div class="col-md-12 mb-3">
-                                    <label for="">Item Name *</label>
-                                    <input type="text" name="itemname"  value="<?= $categoryData['data']['itemname']; ?>" class="form-control"/>
-                                </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="">Catogory *</label>
                                     <input type="text" name="category"  value="<?= $categoryData['data']['category']; ?>" class="form-control"/>
                                 </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="">Quntity (Kg/paclets) *</label>
-                                    <input type="number" name="qty"  value="<?= $categoryData['data']['quntity']; ?>" class="form-control"/>
+                                <div class="col-md-12 mb-3">
+                                    <label for="">Description</label>
+                                    <textarea name="description" class="form-control"  value="<?= $categoryData['data']['description']; ?>"></textarea>
                                 </div>
                                 <div class="col-md-12 mb-3 text-end">
-                                    <button type="submit" name="updateCategory" class="btn btn-primary">Update</button>
+                                    <button type="submit" name="updateCategory"  class="btn btn-primary">Update</button>
                                 </div>
                             </div>
                             <?php include('includes/footer.php'); ?>

@@ -91,14 +91,12 @@
     }
     if(isset($_POST['savecategory']))
     {
-        $itemname = validate($_POST['itemname']);
+        $description = validate($_POST['description']);
         $category = validate($_POST['category']);
-        $quntity=validate($_POST['qty']);
 
         $data=[
-            'itemname'=>$itemname,
-            'category'=>$category,
-            'quntity'=>$quntity
+            'description'=>$description,
+            'category'=>$category
 
         ];
         $result=insert('categories',$data);
@@ -120,15 +118,13 @@
             redirct('categories-edit.php?id='.$categoryid,'Please fill requre fields.');
         }
 
-        $itemname = validate($_POST['itemname']);
+        $description = validate($_POST['description']);
         $category = validate($_POST['category']);
-        $quntity=validate($_POST['qty']);
 
-        if($itemname !='' && $category !=''){
+        if($description !='' && $category !=''){
             $data=[
-                'itemname'=>$itemname,
-                'category'=>$category,
-                'quntity'=>$quntity
+                'description'=>$description,
+                'category'=>$category
     
             ];
             $result=update('categories',$categoryid,$data);

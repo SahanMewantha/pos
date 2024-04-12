@@ -17,6 +17,18 @@
                     <label for="">Select Product *</label>
                     <select name="product_id" class="form-select">
                         <option value="">== Select Product ==</option>
+                        <?php
+                            $products=getAll('products');
+                            if(mysqli_num_rows($product)>0){
+                                foreach($products as $productItem)
+                                    ?> 
+                                        <option value="<?= $productItem['id']; ?>"><?= $productItem['name']; ?></option>
+                                    <?php
+
+                            }else{
+                                echo '<option value="">Product not found</option>';
+                            }
+                        ?>
                     </select>
                 </div>
 
