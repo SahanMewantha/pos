@@ -42,11 +42,11 @@
 
                 <div class="col-md-6 mb-3">
                     <label for="">Product Price  *</label>
-                    <input type="number" name="name" placeholder="" required class="form-control"/>
+                    <input type="number" name="price" placeholder="" required class="form-control"/>
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="">Quntity  *</label>
-                    <input type="number" name="Quntity" placeholder="" required class="form-control"/>
+                    <input type="number" name="quntity" placeholder="" required class="form-control"/>
                 </div>
 
                 <div class="col-md-12 mb-3">

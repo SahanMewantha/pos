@@ -211,20 +211,26 @@
 
     if(isset($_POST['saveProduct']))
     {
-        $description = validate($_POST['description']);
-        $category = validate($_POST['category']);
+        $categoryid = validate($_POST['category_id']);
+        $name = validate($_POST['name']);
+        $price = validate($_POST['price']);
+        $quntity = validate($_POST['quntity']);
+        $status=isset($_POST['status']) ? 1:0;
 
         $data=[
-            'description'=>$description,
-            'category'=>$category
+            'catogory_id'=>$categoryid ,
+            'name'=>$name,
+            'price'=>$price,
+            'quntity'=>$quntity,
+            'status'=>$status
 
         ];
-        $result=insert('categories',$data);
+        $result=insert('products',$data);
         if($result){
-            redirct('categories.php','Item Created Succsessfully...!.');
+            redirct('product.php','Item Created Succsessfully...!.');
         }
         else{
-            redirct('categories-create.php','Somthin went wrong.');
+            redirct('products-create.php','Somthin went wrong.');
         }
 
 

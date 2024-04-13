@@ -28,6 +28,7 @@
                         <th>ID</th>
                         <th>Name</th>
                         <th>Price</th>
+                        <th>Quntity</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
@@ -35,11 +36,12 @@
                 <tbody>
 
 
-                    <?php foreach($categories as $Item) :  ?>
+                    <?php foreach($products as $Item) :  ?>
                     <tr>
                         <td><?= $Item['id'] ?></td>
-                        <td><?= $Item['category'] ?></td>
+                        <td><?= $Item['name'] ?></td>
                         <td><?= $Item['price'] ?></td>
+                        <td><?= $Item['quntity'] ?></td>
                         <td>
                             <?php
                                 if($Item['status']==1){
