@@ -24,7 +24,7 @@
             if($product){
                 if($product['status'] ==200){
                     ?>
-
+            <input type="hidden" name="product_id" value="<?= $product['data']['id'] ?>"/>
            <div class="row">
                 <div class="col-md-12 mb-3">
                     <label>Select Category</label>
@@ -35,7 +35,15 @@
                             if($categories){
                                 if(mysqli_num_rows($categories)>0){
                                     foreach($categories as $cateItem ){
-                                        echo '<option value="'.$cateItem['id'].'">' .$cateItem['category'].'</option>';
+                                        ?>
+                                            <option 
+                                                value="<?=$cateItem['id']; ?>'"
+                                                <?= $product['data']['catogory_id'] == $cateItem['id'] ? 'selected':''; ?>
+                                            >
+                                                <?=$cateItem['category']; ?>
+                                            </option>
+                                        <?php
+
                                     }
                                 }
                                 else{
@@ -71,7 +79,7 @@
 
                 <div class="col-md-12  text-end">
                     <br>
-                    <button type="submit" name="updateProduct" class="btn btn-primary">Save</button>
+                    <button type="submit" name="updateProduct" class="btn btn-primary">Update</button>
                 </div>
             </div>
         <?php

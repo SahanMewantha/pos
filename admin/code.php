@@ -236,6 +236,42 @@
 
     }
 
+    if(isset($_POST['updateProduct']))
+    {
+        $product_id = validate($_POST['product_id']);
+
+        $productDate=getById('products',$product_id);
+        if(!$productDate){
+            redirct('product.php','no product found');
+        }
+
+        $categoryid = validate($_POST['category_id']);
+        $name = validate($_POST['name']);
+        $price = validate($_POST['price']);
+        $quntity = validate($_POST['quntity']);
+        $status=isset($_POST['status']) ? 1:0;
+
+        $data=[
+            'catogory_id'=>$categoryid ,
+            'name'=>$name,
+            'price'=>$price,
+            'quntity'=>$quntity,
+            'status'=>$status
+
+        ];
+        $result=update('products',$product_id,$data);
+        if($result){
+            redirct('product-edit.php?id='.$product_id,'Item Created Succsessfully...!.');
+        }
+        else{
+            redirct('product-edit.php?id='.$product_id,'Somthin went wrong.');
+        }
+
+
+    }
+
+
+
 
 
 ?>

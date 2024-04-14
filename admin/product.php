@@ -28,7 +28,7 @@
                         <th>ID</th>
                         <th>Name</th>
                         <th>Price</th>
-                        <th>Quntity</th>
+                        <th>Quntity(Kg)</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
