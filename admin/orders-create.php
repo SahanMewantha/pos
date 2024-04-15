@@ -14,19 +14,23 @@
         <form action="./order-code.php" method="post">
             <div class="row">
                 <div class="col-md-3 mb-3">
-                    <label for="">Select Product *</label>
+                <label>Select Category</label>
                     <select name="product_id" class="form-select">
-                        <option value="">== Select Product ==</option>
+                        <option value="">Select Product</option>
                         <?php
                             $products=getAll('products');
-                            if(mysqli_num_rows($product)>0){
-                                foreach($products as $productItem)
-                                    ?> 
-                                        <option value="<?= $productItem['id']; ?>"><?= $productItem['name']; ?></option>
-                                    <?php
-
-                            }else{
-                                echo '<option value="">Product not found</option>';
+                            if($products){
+                                if(mysqli_num_rows($products)>0){
+                                    foreach($products as $cateItem ){
+                                        echo '<option value="'.$cateItem['id'].'">' .$cateItem['name'].'</option>';
+                                    }
+                                }
+                                else{
+                                    echo '<option value="">No products found</option>'; 
+                                }    
+                            }
+                            else{
+                                echo '<option value="">Somthing went wrong </option>';
                             }
                         ?>
                     </select>
