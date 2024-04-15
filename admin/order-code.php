@@ -1,6 +1,14 @@
 <?php
     include ('../config/function.php');
 
+    if(!isset($_SESSION['productItem'])){
+        $_SESSION['productItem']=[];
+    }
+
+    if(!isset($_SESSION['productItemId'])){
+        $_SESSION['productItemId']=[];
+    }
+
     if(isset($_POST['addItem']))
     {
         $productid=validate($_POST['product_id']);
@@ -16,11 +24,31 @@
                 $productData=[
                     'product_id' => $row['id'],
                     'name'=> $row['name'],
-                    'price'=> $row['rice'],
+                    'price'=> $row['price'],
                     'quntity'=> $row['quntity']
                 ];
-                array_push($_SESSION['productItemId'],$row['id']);
-                array_push($_SESSION['productItem'],$productData);
+
+                if(!in_array($row['id'],$_SESSION['productItemId'])){
+                    array_push($_SESSION['productItemId'],$row['id']);
+                    array_push($_SESSION['productItem'],$productData);
+                }else{
+
+                    foreach($_SESSION['productItem'] as $key =>$prodSessionItem){
+                        if($prodSessionItem['product_id']==$row['id']){
+
+                            $newQuntity =$prodSessionItem['quntity']+$quntity;
+                            $productData=[
+                                'product_id' => $row['id'],
+                                'name'=> $row['name'],
+                                'price'=> $row['price'],
+                                'quntity'=> $newQuntity
+                            ];
+                            $_SESSION['productItem'][$key]=$productData;
+
+                        }
+                    }
+                }
+                redirct('orders-create.php','Item Added !'.$row['name']); 
             }
             else{
                 redirct('orders-create.php','No product found !');  
