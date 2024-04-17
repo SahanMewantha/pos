@@ -51,9 +51,12 @@
         </form>
 
     </div>
+    
+    <div class="card mt-3">
+        <div class="card-header">
+            <h4 class="mb-0">Product</h4>
+        </div>
 
+    </div>
 
 </div>
-<?php
-    print_r($_SESSION['productItem'])
-?>
