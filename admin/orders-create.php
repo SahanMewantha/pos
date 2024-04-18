@@ -4,7 +4,7 @@
     <div class="card mt-4 shadow">
         <div class="card-header">
                 <h4 class="mb-0">Create Orders
-                <a href="admin.php" class="btn btn-danger float-end">Back</a>
+                <a href="order.php" class="btn btn-danger float-end">Back</a>
                 </h4>         
         </div>
     
@@ -89,9 +89,9 @@
                                     <td><?= $item['price']; ?></td>
                                     <td>
                                         <div class="input-group">
-                                            <button class="input-group-text">-</button>
+                                            <button class="input-group-text decrement">-</button>
                                             <input type="text" value="<?= $item['quntity']; ?>" class="qty quntityInput"/>
-                                            <button class="input-group-text">+</button>
+                                            <button class="input-group-text increment">+</button>
                                         </div>
                                     </td>
                                     <td><?= number_format($item['price'] * $item['quntity'],0); ?></td>

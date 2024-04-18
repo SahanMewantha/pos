@@ -27,6 +27,7 @@
                     'price'=> $row['price'],
                     'quntity'=> $row['quntity']
                 ];
+                
 
                 if(!in_array($row['id'],$_SESSION['productItemId'])){
                     array_push($_SESSION['productItemId'],$row['id']);
