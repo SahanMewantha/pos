@@ -56,6 +56,58 @@
         <div class="card-header">
             <h4 class="mb-0">Product</h4>
         </div>
+        <div class="card-body">
+            <?php
+                if(isset($_SESSION['productItem']))
+                {
+                    $sessionProduct = $_SESSION['productItem'];
+                    ?>
+                    <div class="table-responsive mb-3">
+
+                        <table class="table table-borderd table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Product Name</th>
+                                    <th>Price</th>
+                                    <th>Quntity</th>
+                                    <th>Total price</th>
+                                    <th>Remove</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <?php
+                                    $i=1;
+                                     foreach($sessionProduct as $key => $item):
+                                 
+                                 ?>
+                                <tr>
+                                    <td><?= $i++; ?></td>
+                                    <td><?= $item['name']; ?></td>
+                                    <td><?= $item['price']; ?></td>
+                                    <td>
+                                        <div class="input-group">
+                                            <button class="input-group-text">-</button>
+                                            <input type="text" value="<?= $item['quntity']; ?>" class="qty quntityInput"/>
+                                            <button class="input-group-text">+</button>
+                                        </div>
+                                    </td>
+                                    <td><?= number_format($item['price'] * $item['quntity'],0); ?></td>
+                                    <td>
+                                    <a href="order-item-delete.php?index=<?= $key; ?>" class="btn btn-danger ">Remove</a>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <?php
+                }
+            ?>
+        </div>
 
     </div>
 
