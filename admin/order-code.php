@@ -60,4 +60,25 @@
         }
 
     }
+
+    if(isset($_POST['productIncDec'])){
+        $productid=validate($_POST['product_id']);
+        $quntity=validate($_POST['quntity']);
+
+        $flag=false;
+        foreach($_SESSION['productItem'] as $key=>$item){
+            if($item['product_id']==$productid){
+                $flag=true;
+                $_SESSION['productItem'][$key]['quntity']=$quntity;
+            }
+
+        }
+        if($flag){
+            jsonResponse(200,'Success','Quntity Update');
+        }
+        else{
+            jsonResponse(500,'Error','Somthing went wrong.please refrsh');
+        }
+
+    }
 ?>
