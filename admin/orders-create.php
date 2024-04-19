@@ -56,13 +56,13 @@
         <div class="card-header">
             <h4 class="mb-0">Product</h4>
         </div>
-        <div class="card-body">
+        <div class="card-body" id="productArea">
             <?php
                 if(isset($_SESSION['productItem']))
                 {
                     $sessionProduct = $_SESSION['productItem'];
                     ?>
-                    <div class="table-responsive mb-3">
+                    <div class="table-responsive mb-3" id="productContent">
 
                         <table class="table table-borderd table-striped">
                             <thead>
