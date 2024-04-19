@@ -88,7 +88,7 @@
                                     <td><?= $item['name']; ?></td>
                                     <td><?= $item['price']; ?></td>
                                     <td>
-                                        <div class="input-group">
+                                        <div class="input-group qtyBox">
                                             <button class="input-group-text decrement">-</button>
                                             <input type="text" value="<?= $item['quntity']; ?>" class="qty quntityInput"/>
                                             <button class="input-group-text increment">+</button>
@@ -112,3 +112,4 @@
     </div>
 
 </div>
+<?php include('includes/footer.php'); ?>
