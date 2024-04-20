@@ -104,6 +104,28 @@
                             </tbody>
                         </table>
                     </div>
+
+                    <div class="mt-2">
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label>Select Payment Mode</label>
+                                <select id="payment_method" class="form-select">
+                                <option value="">Select Method</option>
+                                    <option value="Cash payment">Card Payment</option>
+                                    <option value="Online Payment">Online Payment</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                               <label>Enter Customer Phone Number</label>
+                               <input type="number" name="cphone" class="form-control" value=""/> 
+                            </div>
+                            <div class="col-md-4">
+                                <br>
+                                <button type="button" class="btn btn-warning w-100 proceedToPlace">Place Order</button>
+                            </div>
+                        </div>
+                    </div>
                     
                     <?php
                 }

@@ -35,7 +35,7 @@ $(document).ready(function (){
     function quntityIncDec(prodId,qty){
 
         $.ajax({
-            type : "POSt",
+            type : "POST",
             url:"order-code.php",
             data : {
                     'productIncDec':true,
