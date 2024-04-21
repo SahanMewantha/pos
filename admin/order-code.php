@@ -81,4 +81,28 @@
         }
 
     }
+
+    if(isset($_POST['proceedToPlaceBtn'])){
+
+        $phone=validate($_POST['cphone']);
+        $payment_mode=validate($_POST['payment_mode']);
+
+        $cheackCustomer=mysqli_query($conn,"SELECT * FROM customers where phone=$phone LIMIT 1");
+        if($cheackCustomer){
+            if(mysqli_num_rows($cheackCustomer)>0){
+                $_SESSION['invice_no'] = "INV-".rand(111111,999999);
+                $_SESSION['cphone']=$phone;
+                $_SESSION['payment_mode']=$payment_mode;
+                jsonResponse(200,'sucsess','Customer Found!');
+            }
+            else{
+                $_SESSION['cphone'] =$phone;
+                jsonResponse(404,'warning','Customer Not Found!');
+            }
+        }
+        else{
+            jsonResponse(500,'error','somthin went wrong');
+        }
+
+    }
 ?>
