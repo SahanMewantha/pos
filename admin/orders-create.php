@@ -110,7 +110,7 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <label>Select Payment Mode</label>
-                                <select id="payment_method" class="form-select">
+                                <select id="payment_mode" class="form-select">
                                 <option value="">Select Method</option>
                                     <option value="Cash payment">Card Payment</option>
                                     <option value="Online Payment">Online Payment</option>

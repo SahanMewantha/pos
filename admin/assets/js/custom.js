@@ -62,5 +62,15 @@ $(document).ready(function (){
         });
     }
 
+    //plase order
+
+    $(document).on('click', '.proceedToPlace' ,function(){
+
+        var payment_mode=$('#payment_mode').val();
+        if(payment_mode != ''){
+            swal("Select payment mode","Select your payment mode",)
+        }
+    });
+
 
 });
