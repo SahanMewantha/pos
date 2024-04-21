@@ -113,7 +113,7 @@ $(document).ready(function (){
                     .then((value) =>{
                         switch(value){
                             case "catch":
-                                $('#addcustomerModel').model();
+                                $('#addcustomerModel').modal('show');
                                 //console.log('Pop the customer add model');
                                 break;
                             default:
