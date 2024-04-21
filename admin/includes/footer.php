@@ -26,15 +26,18 @@
 
 
 <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
-<script src="js/datatables-simple-demo.js"></script>
+<script src="assets/js/datatables-simple-demo.js"></script>
+
+
 <script>
     $(document).ready(function(){
         
     });
 </script>
+
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
-
-
 <script src="assets/js/custom.js"></script>
 
 

@@ -64,11 +64,22 @@ $(document).ready(function (){
 
     //plase order
 
-    $(document).on('click', '.proceedToPlace' ,function(){
+    $(document).on('click','.proceedToPlace' ,function() {
 
-        var payment_mode=$('#payment_mode').val();
-        if(payment_mode != ''){
-            swal("Select payment mode","Select your payment mode",)
+        console.log('proceedToPlace');
+
+        var payment_mode = $('#payment_mode').val();
+        var cphone = $('#cphone').val();
+
+        if(payment_mode == ''){
+
+            swal("Select Payment Mode","Select your payment mode","warning");
+            return false;
+        }
+        if(cphone == '' && !$.isNumeric(cphone)){
+
+            swal("Enter Phone Number","Enter valid Phone Number","warning");
+            return false;
         }
     });
 
