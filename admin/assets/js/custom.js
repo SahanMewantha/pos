@@ -113,6 +113,7 @@ $(document).ready(function (){
                     .then((value) =>{
                         switch(value){
                             case "catch":
+                                $('#c_phone').val(cphone);
                                 $('#addcustomerModel').modal('show');
                                 //console.log('Pop the customer add model');
                                 break;
