@@ -93,7 +93,7 @@
                 $_SESSION['invice_no'] = "INV-".rand(111111,999999);
                 $_SESSION['cphone']=$phone;
                 $_SESSION['payment_mode']=$payment_mode;
-                jsonResponse(200,'sucsess','Customer Found!');
+                jsonResponse(200,'success','Customer Found!');
             }
             else{
                 $_SESSION['cphone'] =$phone;
@@ -104,5 +104,26 @@
             jsonResponse(500,'error','somthin went wrong');
         }
 
+    }
+
+    if(isset($_POST['saveCustomerBtn']))
+    {
+        $name=validate($_POST['name']);
+        $phone=validate($_POST['phone']);
+        $email=validate($_POST['email']);
+
+        if($name != '' && $phone != ''){
+            $data=[
+                'cusname'=>$name,
+                'phone'=>$phone,
+                'email'=>$email  				
+            ];
+            $result=insert('customers',$data);
+            if($result){
+                jsonResponse(200,'success','Customer create sucsessfully !');  
+            }else{
+                jsonResponse(500,'error','Somthing went wrong!');
+            }
+        }
     }
 ?>

@@ -133,13 +133,15 @@ $(document).ready(function (){
 
     //add customer
 
-    $document.on('click','saveCustomer',function(){
-        var c_name=$('c_name').val();
-        var c_phone=$('c_phone').val();
-        var c_email=$('c_email').val();
+    $(document).on('click','.saveCustomer',function(){
+
+        var c_name=$('#c_name').val();
+        var c_phone=$('#c_phone').val();
+        var c_email=$('#c_email').val();
 
         if(c_name !='' && c_phone != ''){
             if($.isNumeric(c_phone)){
+
                 var data={
                     'saveCustomerBtn':true,
                     'name':c_name,
@@ -154,7 +156,7 @@ $(document).ready(function (){
                         var res =JSON.parse(response);
 
                         if(res.status==200){
-                            swal(res.message,res.message,res.status_type);
+                            swal(res.message ,res.message ,res.status_type);
                             $('#addcustomerModel').modal('hide');
                         }else{
                             swal(res.message,res.message,res.status_type);
@@ -165,7 +167,7 @@ $(document).ready(function (){
 
                 
             }else{
-                wal("Enter Valid phone number !","","warning") 
+                swal("Enter Valid phone number !","","warning") 
             }
 
         }
