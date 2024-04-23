@@ -72,6 +72,34 @@ if(!isset($_SESSION['productItem'])){
                                 $sessionProduct=$_SESSION['productItem'];
                                 ?>
                                     <div class="table-responsive mb-3">
+                                        <table style="width:100%;" cellpadding="5">
+                                            <thead>
+                                                <tr>
+                                                    <th align="start" style="border-bottom:1px solid #ccc;" width=5%;>ID</th>
+                                                    <th align="start" style="border-bottom:1px solid #ccc;" width=5%;>Produc Name</th>
+                                                    <th align="start" style="border-bottom:1px solid #ccc;" width=5%;>Price</th>
+                                                    <th align="start" style="border-bottom:1px solid #ccc;" width=5%;>Quntity</th>
+                                                    <th align="start" style="border-bottom:1px solid #ccc;" width=5%;>Total Price</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                    $i=1;
+                                                    $totalAmount=0;
+                                                    foreach($sessionProduct as $key =>$row):
+                                                    $totalAmount += $row['price'] * $row['quntity']
+                                                ?>
+                                                <tr>
+                                                    <td style="border-bottom:1px solid #ccc;"><?= $i++; ?></td>
+                                                    <td style="border-bottom:1px solid #ccc;"><?= $row['name']; ?></td>
+                                                    <td style="border-bottom:1px solid #ccc;"><?= number_format($row['price'],0) ?></td>
+                                                    <td style="border-bottom:1px solid #ccc;"><?= $row['quntity']; ?></td>
+                                                        <?= number_format($row['price']* $row['quntity'],0) ?>
+
+                                                </tr>
+                                                <?php endforeach; ?>
+                                            </tbody>
+                                        </table>
                                         
                                     </div>
 
