@@ -94,10 +94,19 @@ if(!isset($_SESSION['productItem'])){
                                                     <td style="border-bottom:1px solid #ccc;"><?= $row['name']; ?></td>
                                                     <td style="border-bottom:1px solid #ccc;"><?= number_format($row['price'],0) ?></td>
                                                     <td style="border-bottom:1px solid #ccc;"><?= $row['quntity']; ?></td>
+                                                    <td style="border-bottom:1px solid #ccc;" class="fwbold">
                                                         <?= number_format($row['price']* $row['quntity'],0) ?>
+                                                    </td>
 
                                                 </tr>
                                                 <?php endforeach; ?>
+                                                <tr>
+                                                    <td colspan="4" align="end" style="font-weight:bold;">Grand Total :</td>
+                                                    <td colspan="1"  style="font-weight:bold;"><?= number_format($totalAmount,0); ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="5">Payment Mode : <?= $_SESSION['payment_mode']; ?></td>
+                                                </tr>
                                             </tbody>
                                         </table>
                                         
