@@ -184,11 +184,11 @@ $(document).ready(function (){
             type: "POST",
             url: "order-code.php",
             data: {
-                'order-code.php':true
+                'saveOrder':true
             },
-            dataType: "dataType",
+
             success: function (response) {
-                var res = JSON.prase(response);
+                var res = JSON.parse(response);
 
                 if(res.status==200){
                     swal(res.message,res.message,res.status_type);

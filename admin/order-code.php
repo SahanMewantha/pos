@@ -129,9 +129,9 @@
 
     if(isset($_POST['saveOrder']))
     {
-        $phone=validate($_POST['cphone']);
-        $invice_no=validate($_POST['invice_no']);
-        $payment_mode=validate($_POST['payment_mode']);
+        $phone=validate($_SESSION['cphone']);
+        $invice_no=validate($_SESSION['invice_no']);
+        $payment_mode=validate($_SESSION['payment_mode']);
 
 
         $cheackCustomer=mysqli_query($conn,"SELECT * FROM customers WHERE phone='$phone' LIMIT 1 ");
@@ -149,15 +149,63 @@
             $sessonProduct=$_SESSION['productItem'];
 
             $totalAmount=0;
+            foreach($sessonProduct as $amtItem){
+                $totalAmount += $amtItem['prce']*$amtItem['quntity'];
+            }
 
-            
+
             $data =[
                 'customer_id' => $customerData['id'],
                 'tracking_no' => rand(11111,99999),
                 'invoce_no' => $invice_no,
-                'total_amount' =>$totalAmount
+                'total_amount' =>$totalAmount,
+                'order_date' =>date('Y-m-d'),
+                'order_status' => 'booked',
+                'payment_mode' => $payment_mode
 
             ];
+            $result=insert('orders',$data);
+            $lastOrderId =mysqli_insert_id($conn);
+
+            foreach($sessonProduct as $productItem){
+                $productid=$productItem['product_id'];
+                $price=$productItem['price'];
+                $quntity=$productItem['quntity'];
+
+                //insert
+
+                $dataItem =[
+                    'order_id' => $lastOrderId,
+                    'product_id'=> $productid,
+                    'price' => $price,
+                    'quntity' => $quntity,
+
+                ];
+                $orderItem=insert('order_item',$dataItem);
+
+                $cheackProductQuntity=mysqli_query($conn,"SELECT * FROM products WHERE id='$productid'");
+                $productQtyDate =mysqli_fetch_assoc($cheackProductQuntity);
+                $totalProductQuntity = $productData['quntity']-$quntity;
+
+
+                $dataUpdate=[
+                    'quntity' => $totalProductQuntity
+                ];
+
+                $updateProductQty = update('products',$productid,$dataUpdate);
+
+            }
+
+            unset($_SESSION['productItemId']);
+            unset($_SESSION['productItem']);
+            unset($_SESSION['cphone']);
+            unset($_SESSION['payment_mode']);
+            unset($_SESSION['invoce_no']);
+            
+            jsonResponse(200,'success','Order palce succsessfully !');  
+        }
+        else{
+            jsonResponse(404,'warning','Customer not found !'); 
         }
 
 
