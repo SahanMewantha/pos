@@ -126,4 +126,41 @@
             }
         }
     }
+
+    if(isset($_POST['saveOrder']))
+    {
+        $phone=validate($_POST['cphone']);
+        $invice_no=validate($_POST['invice_no']);
+        $payment_mode=validate($_POST['payment_mode']);
+
+
+        $cheackCustomer=mysqli_query($conn,"SELECT * FROM customers WHERE phone='$phone' LIMIT 1 ");
+        if(!$cheackCustomer){
+            jsonResponse(500,'error','Somthing Went Wrong!');
+        }
+
+        if(mysqli_num_rows($cheackCustomer)>0){
+            $customerData=mysqli_fetch_assoc($cheackCustomer);
+
+            if(!isset($_SESSION['productItem'])){
+                jsonResponse(404,'warning','No Items to place Order !');  
+            }
+
+            $sessonProduct=$_SESSION['productItem'];
+
+            $totalAmount=0;
+
+            
+            $data =[
+                'customer_id' => $customerData['id'],
+                'tracking_no' => rand(11111,99999),
+                'invoce_no' => $invice_no,
+                'total_amount' =>$totalAmount
+
+            ];
+        }
+
+
+
+    }
 ?>

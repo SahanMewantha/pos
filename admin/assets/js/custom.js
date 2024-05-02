@@ -178,5 +178,29 @@ $(document).ready(function (){
         }
     });
 
+    $(document).on('click','#saveOrder', function () {
+
+        $.ajax({
+            type: "POST",
+            url: "order-code.php",
+            data: {
+                'order-code.php':true
+            },
+            dataType: "dataType",
+            success: function (response) {
+                var res = JSON.prase(response);
+
+                if(res.status==200){
+                    swal(res.message,res.message,res.status_type);
+                }
+                else{
+                    swal(res.message,res.message,res.status_type);
+                }
+                
+            }
+        });
+        
+    });
+
 
 });
