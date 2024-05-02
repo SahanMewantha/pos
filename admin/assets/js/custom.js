@@ -63,6 +63,7 @@ $(document).ready(function (){
     }
 
     //plase order
+    
 
     $(document).on('click','.proceedToPlace' ,function() {
 

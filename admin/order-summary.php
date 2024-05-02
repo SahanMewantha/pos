@@ -119,7 +119,18 @@ if(!isset($_SESSION['productItem'])){
                                 echo '<h5 class="text-center">No item added</h5>';
                             }
                         ?>
+
+
+
+
                     </div>
+                    
+                    <?php if(isset($_SESSION['productItem'])) :?>
+                    <div class="mt-4 text-end">
+                        <button type="button" class="btn btn-primary px-4 mx-1" id="saveOrder">Save Order</button>
+                    </div>
+                    <?php endif; ?>
+                
                 </div>
             </div>
         </div>
