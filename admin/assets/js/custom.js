@@ -178,7 +178,7 @@ $(document).ready(function (){
         }
     });
 
-    $(document).on('click','#saveOrder', function () {
+    $(document).on('click','#saveOrder',function() {
 
         $.ajax({
             type: "POST",
@@ -187,11 +187,11 @@ $(document).ready(function (){
                 'saveOrder':true
             },
 
-            success: function (response) {
+            success: function (response){
                 var res = JSON.parse(response);
 
                 if(res.status==200){
-                    swal(res.message,res.message,res.status_type);
+                    swal(res.message ,res.message ,res.status_type);
                 }
                 else{
                     swal(res.message,res.message,res.status_type);

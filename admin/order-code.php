@@ -129,8 +129,8 @@
 
     if(isset($_POST['saveOrder']))
     {
-        $phone=validate($_SESSION['cphone']);
-        $invice_no=validate($_SESSION['invice_no']);
+        $phone=validate($_POST['cphone']);
+        $invice_no=validate ($_SESSION['invice_no']);
         $payment_mode=validate($_SESSION['payment_mode']);
 
 
