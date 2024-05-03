@@ -19,13 +19,13 @@
             if(mysqli_num_rows($cheackProduct)>0){
                 $row=mysqli_fetch_assoc($cheackProduct);
                 if($row['quntity']<$quntity){
-                    redirct('orders-create.php','Only' .$row['quntity']. 'quntity avilable !');  
+                    redirct('orders-create.php','Only ' .$row['quntity']. 'quntity avilable !');  
                 }
                 $productData=[
                     'product_id' => $row['id'],
                     'name'=> $row['name'],
                     'price'=> $row['price'],
-                    'quntity'=> $row['quntity']
+                    'quntity'=> $quntity,
                 ];
                 
 
@@ -129,7 +129,7 @@
 
     if(isset($_POST['saveOrder']))
     {
-        $phone=validate($_POST['cphone']);
+        $phone=validate($_SESSION['cphone']);
         $invice_no=validate ($_SESSION['invice_no']);
         $payment_mode=validate($_SESSION['payment_mode']);
 
@@ -150,7 +150,7 @@
 
             $totalAmount=0;
             foreach($sessonProduct as $amtItem){
-                $totalAmount += $amtItem['prce']*$amtItem['quntity'];
+                $totalAmount += $amtItem['price'] * $amtItem['quntity'];
             }
 
 
