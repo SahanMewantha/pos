@@ -185,7 +185,7 @@
 
                 $cheackProductQuntity=mysqli_query($conn,"SELECT * FROM products WHERE id='$productid'");
                 $productQtyDate =mysqli_fetch_assoc($cheackProductQuntity);
-                $totalProductQuntity = $productData['quntity']-$quntity;
+                $totalProductQuntity = $productQtyDate['quntity']-$quntity;
 
 
                 $dataUpdate=[
@@ -207,8 +207,5 @@
         else{
             jsonResponse(404,'warning','Customer not found !'); 
         }
-
-
-
     }
 ?>
