@@ -10,7 +10,7 @@
     
 
     <div class="card-body">
-    <?php alertMessage(); ?>
+        <?php alertMessage(); ?>
         <form action="./code.php" method="post">
             <div class="row">
                 <div class="col-md-12 mb-3">
@@ -66,6 +66,6 @@
                 </div>
             </div>
         </form>
+    </div>
 </div>
-
 <?php include('includes/footer.php'); ?>
