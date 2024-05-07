@@ -9,7 +9,7 @@
                 </h4>        
         </div>
         <div class="card-body">
-        <?php alertMessage(); ?>
+        
 
         <?php
             if(isset($_GET['track']))
@@ -26,7 +26,7 @@
                         $ordersData = mysqli_fetch_assoc($orders);
                         $orderId=$ordersData['id'];
 
-                        ?>
+        ?>
                         <div class="card card-body shadow border-1 mb-4">
                             <div class="row">
                                 <div class="col-md-6">
@@ -74,18 +74,74 @@
                         </div>
 
                         <?php
+                            $ordersItemquery ="SELECT oi.quntity as orderItemQuntity, oi.price as orderItemPrice, o.*, oi.*, p.*
+                                FROM orders as o, order_item as oi, products as p
+                                WHERE oi.order_id=o.id AND p.id=oi.product_id AND o.tracking_no='$trackingNo'";
 
-                    }else{
-                        echo '<h5>No Record Found !<h5>';
-                        return false;
-                    }
+                            $orderITemsRes =mysqli_query($conn,$ordersItemquery);
+                            if($orderITemsRes){
+                                if(mysqli_num_rows($orderITemsRes)>0)
+                                {
+                                    ?>
+                                        <h4 class="my-3">Order Item Details</h4>
+                                        <table class="table table-bordered table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>Product</th>
+                                                    <th>Price</th>
+                                                    <th>Quntity</th>
+                                                    <th>Total</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php foreach($orderITemsRes as $orderItemRow): ?>
+                                                    <tr>
+                                                        <td width="15%" class="fw-bold text-center">
+                                                            <?= $orderItemRow['name']; ?>
+                                                        </td>
+                                                        <td width="15%" class="fw-bold text-center">
+                                                            <?= number_format($orderItemRow['orderItemPrice']); ?>
+                                                        </td>
+                                                        <td width="15%" class="fw-bold text-center">
+                                                        <?= $orderItemRow['orderItemQuntity']; ?>
+                                                        </td>
+                                                        <td width="15%" class="fw-bold text-center">
+                                                            <?= number_format($orderItemRow['orderItemPrice'] * $orderItemRow['orderItemQuntity']); ?>
+                                                        </td>
+
+                                                    </tr>
+                                                <?php endforeach; ?>
+                                                <tr>
+                                                    <td class="text-end fw-bold">Total Price :</td>
+                                                    <td colspan="3" class="text-end fw-bold">RS:  <?= number_format($orderItemRow['total_amount']); ?></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    <?php
+
+                                }
+                                else{
+
+                                }
+                            }
+                            else{
+                                echo '<h5>No Record Found !<h5>';
+                                return false;
+                            }
+                        ?>
+
+                        <?php
+                                }else{
+                                    echo '<h5>No Record Found !<h5>';
+                                    return false;
+                                }
+                            }
+                            else{
+
+                            }
+
                 }
-                else{
-
-                }
-
-            }
-        ?>
+                        ?>
 
         </div>
     </div>
