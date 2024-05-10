@@ -101,17 +101,17 @@
                                                     <td style="border-bottom:1px solid #ccc;"><?= number_format($row['orderItemPrice'],0) ?></td>
                                                     <td style="border-bottom:1px solid #ccc;"><?= $row['orderItemQuntity']; ?></td>
                                                     <td style="border-bottom:1px solid #ccc;" class="fwbold">
-                                                        <?= number_format($row['price']* $row['quntity'],0) ?>
+                                                        <?= number_format($row['orderItemPrice']* $row['orderItemQuntity'],0) ?>
                                                     </td>
 
                                                 </tr>
                                                 <?php endforeach; ?>
                                                 <tr>
                                                     <td colspan="4" align="end" style="font-weight:bold;">Grand Total :</td>
-                                                    <td colspan="1"  style="font-weight:bold;"><?= number_format($totalAmount,0); ?></td>
+                                                    <td colspan="1"  style="font-weight:bold;"><?= number_format($row['total_amount'],0); ?></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="5">Payment Mode : <?= $_SESSION['payment_mode']; ?></td>
+                                                    <td colspan="5">Payment Mode : <?= $row['payment_mode']; ?></td>
                                                 </tr>
                                             </tbody>
                                         </table>
