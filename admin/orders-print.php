@@ -55,7 +55,7 @@
                                                     </td>
                                                     <td align="end">
                                                         <h5 style="font-size:20px; line-height:30px; margin:0px; padding:0;">Invoce Details</h5>
-                                                        <p style="font-size:14px; line-height:20px; margin:2px; padding:0;">Invoce no: :<?= $orderDataRow['tracking_no']; ?></p>
+                                                        <p style="font-size:14px; line-height:20px; margin:2px; padding:0;">Invoce no: :<?= $orderDataRow['invoce_no']; ?></p>
                                                         <p style="font-size:14px; line-height:20px; margin:2px; padding:0;">Customer date :<?= date('d m y') ?></p>
                                                         <p style="font-size:14px; line-height:20px; margin:2px; padding:0;">Address :Ampara</p>
                                                     </td>
@@ -135,9 +135,9 @@
                 
                 ?>
             </div>    
-            <div>
+            <div class="mt-4 text-end">
                 <button class="btn btn-dark px-4 mx-1" onclick="printMyBillingArea()">print</button>
-                <button class="btn btn-warning px-4 mx-1" onclick="downLoadPdf()">Download as PDF</button>
+                <button class="btn btn-secondary px-4 mx-1" onclick="downLoadPdf('<?= $orderDataRow['invoce_no']; ?>')">Download as PDF</button>
             </div>   
         </div>
     </div>
