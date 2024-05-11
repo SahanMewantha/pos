@@ -165,4 +165,18 @@
         return;
     }
 
+    function getCount($tableName){
+        global $conn;
+
+        $table = validate($tableName);
+
+        $query="SELECT *FROM $table";
+        $stmt=mysqli_query($conn,$query);
+
+        if($stmt){
+            $total=mysqli_num_rows($stmt);
+            return $total;
+        }
+    }
+
 ?>
