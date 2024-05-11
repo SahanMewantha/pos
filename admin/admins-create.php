@@ -29,10 +29,6 @@
                     <label for="">Phone Number *</label>
                     <input type="number" name="phone" required class="form-control"/>
                 </div>
-                <div class="col-md-6 mb-3">
-                    <label for="">Is Ban *</label>
-                    <input type="checkbox" name="is_ban" style="width: 30px; height: 30px;"/>
-                </div>
                 <div class="col-md-12 mb-3 text-end">
                     <button type="submit" name="saveAdmin" class="btn btn-primary">Save</button>
                 </div>

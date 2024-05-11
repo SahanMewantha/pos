@@ -202,5 +202,12 @@ $(document).ready(function (){
         
     });
 
+    function printMyBillingArea(){
+        var divContents =document.getElementById("myBillingArea").innerHTML;
+        var a=window.open('', '');
+        a.document.write('<html><title>Fresh Harvest Farm </title>');
+        a.document.write('<body style="font-family:fangsong;">')
+    }
+
 
 });
