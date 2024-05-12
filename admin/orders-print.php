@@ -136,8 +136,8 @@
                 ?>
             </div>    
             <div class="mt-4 text-end">
-                <button class="btn btn-dark px-4 mx-1" onclick="printMyBillingArea()">print</button>
-                <button class="btn btn-secondary px-4 mx-1" onclick="downLoadPdf('<?= $orderDataRow['invoce_no']; ?>')">Download as PDF</button>
+                <button class="btn btn-dark px-4 mx-1" onclick="printMyBillingArea()">print <i class="fa fa-print" aria-hidden="true"></i></button>
+                <button class="btn btn-secondary px-4 mx-1" onclick="downLoadPdf('<?= $orderDataRow['invoce_no']; ?>')">Download as PDF <i class="fa fa-download" aria-hidden="true"></i></button>
             </div>   
         </div>
     </div>

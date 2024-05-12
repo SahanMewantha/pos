@@ -74,7 +74,7 @@
 
                 <div class="col-md-3 mb-3 text-end">
                     <br>
-                    <button type="submit" name="addItem" class="btn btn-primary">Add Item</button>
+                    <button type="submit" name="addItem" class="btn btn-dark">Add To Cart <i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
                 </div>
             </div>
 

@@ -42,8 +42,8 @@
                                     </select>
                                 </div>
                                 <div class="col-md-4">
-                                    <button type="submit" class="btn btn-primary">Filter</button>
-                                    <a href="orders.php" class="btn btn-danger">reset</a>
+                                    <button type="submit" class="btn btn-primary">Filter <i class="fa fa-filter" aria-hidden="true"></i></button>
+                                    <a href="orders.php" class="btn btn-danger">reset <i class="fa fa-repeat" aria-hidden="true"></i></a>
                                 </div>
                             </div>
                         </form>
@@ -109,8 +109,8 @@
                                         <td><?= $ordersitem['order_status'];?></td>
                                         <td><?= $ordersitem['payment_mode'];?></td>
                                         <td>
-                                            <a href="orders-view.php?track=<?= $ordersitem['tracking_no'];?>" class="btn btn-info mb-0 px-2 btn-sm">View</a>
-                                            <a href="orders-print.php?track=<?= $ordersitem['tracking_no'];?>" class="btn btn-primary mb-0 px-2 btn-sm">Print</a>
+                                            <a href="orders-view.php?track=<?= $ordersitem['tracking_no'];?>" class="btn btn-info mb-0 px-2 btn-sm">View </a>
+                                            <a href="orders-print.php?track=<?= $ordersitem['tracking_no'];?>" class="btn btn-primary mb-0 px-2 btn-sm">Print <i class="fa fa-print" aria-hidden="true"></i></a>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
