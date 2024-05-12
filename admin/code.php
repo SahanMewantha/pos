@@ -233,10 +233,10 @@
             ];
             $result=insert('suppliers',$data);
             if($result){
-                redirct('suplier.php','customers Added...!.');
+                redirct('suplier.php','Supplier Added...!.');
             }
             else{
-                redirct('supplier-create.php','Somthin went wrong.');
+                redirct('supplier-create.php','Somthing went wrong.');
             }
         
         }
