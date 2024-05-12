@@ -1,4 +1,7 @@
 
+<?php
+    require 'config/function.php';
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,7 +14,9 @@
 <body>
         
 
+
     <div class="container" id="container">
+    
         <div class="form-container sign-in">
 
             <form action="login-coad.php" method="post">
