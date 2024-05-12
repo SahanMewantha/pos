@@ -67,6 +67,18 @@
                     </nav>
                 </div>
 
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseSuppliers" aria-expanded="false" aria-controls="collapseCustomer">
+                    <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                    Suppliers
+                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse" id="collapseSuppliers" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                    <nav class="sb-sidenav-menu-nested nav">
+                        <a class="nav-link" href="supplier-create.php">Add Suppliers</a>
+                        <a class="nav-link" href="suplier.php">View Supplers</a>
+                    </nav>
+                </div>
+
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseAdmins" aria-expanded="false" aria-controls="collapseAdmins">
                     <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                     Admin/Staff
@@ -80,10 +92,6 @@
                 </div>
                 </div>
             </div>
-        </div>
-        <div class="sb-sidenav-footer">
-            <div class="small">Logged in as:</div>
-            Admin
         </div>
     </nav>
 </div>
