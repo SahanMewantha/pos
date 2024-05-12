@@ -209,6 +209,42 @@
 
     }
 
+    
+    if(isset($_POST['saveSupplier']))
+    {
+        
+        $cusname=validate($_POST['cusname']);
+        $phone=validate($_POST['phone']);
+        $email=validate($_POST['mail']);
+
+        if($cusname !=''){
+
+            $emailCheck = mysqli_query($conn,"SELECT * FROM suppliers WHERE email='$email'");
+            if($emailCheck){
+                if(mysqli_num_rows($emailCheck)>0){
+                    redirct('supplier-create.php','Email already used...!');
+                }
+            }
+            $data=[
+                'cusname'=>$cusname,
+                'email'=>$email,
+                'phone'=>$phone
+                   				
+            ];
+            $result=insert('suppliers',$data);
+            if($result){
+                redirct('suplier.php','customers Added...!.');
+            }
+            else{
+                redirct('supplier-create.php','Somthin went wrong.');
+            }
+        
+        }
+        
+
+    }
+
+
     if(isset($_POST['saveProduct']))
     {
         $categoryid = validate($_POST['category_id']);
