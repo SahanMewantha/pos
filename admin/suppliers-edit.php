@@ -4,7 +4,7 @@
     <div class="card mt-4 shadow">
     <div class="card-header">
             <h4 class="mb-0">Edit Supplier
-            <a href="customer.php" class="btn btn-danger float-end">Back</a>
+            <a href="suplier.php" class="btn btn-danger float-end">Back</a>
             </h4>         
     </div>
     
@@ -20,7 +20,7 @@
                 echo '<h5> .$paramValue. </h5>';
                 return false;
             }
-            $customer=getById('customers',$paramValue);                 
+            $customer=getById('suppliers',$paramValue);                 
             if($customer['status'] ==200)
             {   
                 ?>

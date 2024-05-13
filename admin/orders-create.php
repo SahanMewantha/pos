@@ -85,7 +85,7 @@
     
     <div class="card mt-3">
         <div class="card-header">
-            <h4 class="mb-0">Product</h4>
+            <h4 class="mb-0">Cart Item</h4>
         </div>
         <div class="card-body" id="productArea">
             <?php

@@ -244,6 +244,40 @@
 
     }
 
+    if(isset($_POST['updateSupplier']))
+    {
+        $cusid=validate($_POST['cusid']);
+        $cusname=validate($_POST['cusname']);
+        $phone=validate($_POST['phone']);
+        $email=validate($_POST['mail']);
+
+        if($cusname !='')
+        {
+            $emailCheck = mysqli_query($conn,"SELECT * FROM suppliers WHERE email='$email' AND id!='$cusid'");
+            if($emailCheck){
+                if(mysqli_num_rows($emailCheck)>0){
+                    redirct('suppliers-edit.php?id='.$cusid,'Email already used...!');
+                }
+            }
+            $data=[
+                'cusname'=>$cusname,
+                'email'=>$email,
+                'phone'=>$phone
+                   				
+            ];
+            $result=update('suppliers',$cusid,$data);
+            if($result){
+                redirct('suplier.php?id='.$cusid,'Suppliers updated...!.');
+            }
+            else{
+                redirct('suppliers-edit.php?id='.$cusid,'Somthin went wrong.');
+            }
+        
+        }
+        
+
+    }
+
 
     if(isset($_POST['saveProduct']))
     {
