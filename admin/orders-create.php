@@ -35,7 +35,7 @@
     <div class="card mt-4 shadow">
         <div class="card-header">
                 <h4 class="mb-0">Create Orders
-                <a href="order.php" class="btn btn-danger float-end">Back</a>
+                <a href="orders.php" class="btn btn-danger float-end">Back</a>
                 </h4>         
         </div>
     
