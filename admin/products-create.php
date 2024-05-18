@@ -45,7 +45,7 @@
                     <input type="number" name="price" placeholder="" required class="form-control"/>
                 </div>
                 <div class="col-md-6 mb-3">
-                    <label for="">Quntity  *</label>
+                    <label for="">Quntity (Kg/L) *</label>
                     <input type="number" name="quntity" placeholder="" required class="form-control"/>
                 </div>
 

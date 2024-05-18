@@ -1,40 +1,9 @@
 <?php include('includes/header.php'); ?>
 
-<div class="modal fade" id="addcustomerModel" data-bs-backdrop="static" data-bs-keybord="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Add Customer</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="mb-3">
-            <label>Enter Customer Name</label>
-            <input type="text" class="form-control" id="c_name"/>
-        </div>
-        <div class="mb-3">
-            <label>Enter Customer Phone Number</label>
-            <input type="text" class="form-control" id="c_phone"/>
-        </div>
-        <div class="mb-3">
-            <label>Enter Customer Emali (optional)</label>
-            <input type="text" class="form-control" id="c_email"/>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary saveCustomer">Save</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
 <div class="container-fluid px-4">
     <div class="card mt-4 shadow">
         <div class="card-header">
-                <h4 class="mb-0">Create Orders
+                <h4 class="mb-0">Buy From Suppliers
                 <a href="orders.php" class="btn btn-danger float-end">Back</a>
                 </h4>         
         </div>
@@ -42,44 +11,34 @@
 
     <div class="card-body">
     <?php alertMessage(); ?>
-        <form action="./order-code.php" method="post">
+        <form action="./suppbuy-code.php" method="post">
             <div class="row">
-                <div class="col-md-3 mb-3">
-                <label>Select Category</label>
-                    <select name="product_id" class="form-select">
-                        <option value="">Select Product</option>
-                        <?php
-                            $products=getAll('products');
-                            if($products){
-                                if(mysqli_num_rows($products)>0){
-                                    foreach($products as $cateItem ){
-                                        echo '<option value="'.$cateItem['id'].'">' .$cateItem['name'].'</option>';
-                                    }
-                                }
-                                else{
-                                    echo '<option value="">No products found</option>'; 
-                                }    
-                            }
-                            else{
-                                echo '<option value="">Somthing went wrong </option>';
-                            }
-                        ?>
-                    </select>
+                
+                <div class="col-md-2 mb-3">
+                        <label for="">Item Name *</label>
+                        <input type="text" name="iname" class="form-control"/>
                 </div>
+                <div class="col-md-2 mb-3">
+                        <label for="">Price *</label>
+                        <input type="number" name="price"  class="form-control"/>
+                </div>
+                    
 
                 <div class="col-md-2 mb-3">
-                    <label for="">Quntity (KG/L)*</label>
+                    <label for="">Quntity *</label>
                     <input type="number" name="quntity" value="1" class="form-control"/>
                 </div>
 
                 <div class="col-md-3 mb-3 text-end">
                     <br>
-                    <button type="submit" name="addItem" class="btn btn-dark">Add To Cart <i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+                    <button type="submit" name="supItem" class="btn btn-dark">Add To Cart <i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
                 </div>
             </div>
 
 
         </form>
+
+    
 
     </div>
     
@@ -148,7 +107,7 @@
                                 </select>
                             </div>
                             <div class="col-md-4">
-                               <label>Enter Customer Phone Number</label>
+                               <label>Enter Supplier Phone Number</label>
                                <input type="number" id="cphone" class="form-control" value=""/> 
                             </div>
                             <div class="col-md-4">

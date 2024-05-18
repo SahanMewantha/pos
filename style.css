@@ -271,6 +271,7 @@
 
 .footer-links a:hover{
     color: #7DBA34;
+    width:100%;
     scale: 1.2;
 }
 

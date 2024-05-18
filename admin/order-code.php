@@ -7,7 +7,7 @@
 
     if(!isset($_SESSION['productItemId'])){
         $_SESSION['productItemId']=[];
-    }
+    }  
 
     if(isset($_POST['addItem']))
     {
