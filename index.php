@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>EcoAgriLink | Sri Lanka's Sustainable Farming Hub</title>
+    <title>Fresh Harvest | Sri Lanka's Sustainable Farming Hub</title>
+
+    <link rel="shortcut icon" href="./images/fresh harvest.png" type="image/icon">
 
 
     <!-- css -->
@@ -36,10 +38,7 @@
                 <div class="link_item"><a href="index.php">Home</a></div>
                 <div class="link_item"><a href="about.php">About Us</a></div>
                 <div class="link_item">
-                    <div class="account-dropdown"><a href="#">Login</a>     
-                        <div class="dropdown-content">
-                            <div class="link_item"><a href="login.php"><i class="bi bi-person-fill-add"></i>Login Up</a></div>
-                        </div>
+                    <div class="account-dropdown"><a href="login.php">Login</a>
                     </div>
                 </div>
                 <div class="link_item">
@@ -68,10 +67,6 @@
             <a href="https://www.whatsapp.com" target="_blank"><i class="bi bi-whatsapp"></i></a>
         </div>
 
-        <div class="copyright">
-            <label>Copyright © 2023 Fresh harvest.</label>
-        </div>
-    </div>
 
 
     <!-- bootstrap -->
