@@ -28,4 +28,7 @@ The application is built using:
 
 ## Installation Instructions
 
+ ```bash
+https://github.com/SahanMewantha/pos.git
+
 
